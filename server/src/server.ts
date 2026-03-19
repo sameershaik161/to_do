@@ -4,8 +4,8 @@ import app from './app';
 
 dotenv.config();
 
-const PORT = process.env['PORT'] ?? 5000;
-const MONGO_URI = process.env['MONGO_URI'] ?? 'mongodb://localhost:27017/taskboard';
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/taskboard';
 
 const startServer = async (): Promise<void> => {
   try {
@@ -13,7 +13,7 @@ const startServer = async (): Promise<void> => {
     console.log('MongoDB connected successfully');
 
     app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
     console.error('Failed to start server:', error);

@@ -9,7 +9,9 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5175'],
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://your-frontend-domain.onrender.com', 'http://localhost:5173', 'http://localhost:5175']
+    : ['http://localhost:5173', 'http://localhost:5175'],
   credentials: true,
 }));
 app.use(express.json());
