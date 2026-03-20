@@ -104,7 +104,6 @@ export default function BoardPage() {
         {TASK_STATUSES.map(({ value, label }) => (
           <TaskColumn
             key={value}
-            status={value}
             label={label}
             tasks={getTasksByStatus(value)}
             accentColor={COLUMN_COLORS[value]}

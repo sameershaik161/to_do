@@ -1,8 +1,7 @@
 import TaskCard from './TaskCard';
-import type { Task, TaskStatus } from '../types/task';
+import type { Task } from '../types/task';
 
 interface TaskColumnProps {
-  status: TaskStatus;
   label: string;
   tasks: Task[];
   accentColor: string;
