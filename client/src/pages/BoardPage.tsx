@@ -39,7 +39,7 @@ export default function BoardPage() {
   if (isError) {
     return (
       <div className="board-error">
-        <p>⚠️ Could not connect to server. Make sure the backend is running on port 5000.</p>
+        <p>⚠️ Could not connec to server. Make sure the backend is running on port 5000.</p>
       </div>
     );
   }
