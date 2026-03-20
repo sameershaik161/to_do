@@ -4,7 +4,7 @@ import { openCreateModal, setPriorityFilter } from '../features/tasks/taskSlice'
 import type { RootState } from '../app/store';
 import TaskColumn from '../components/TaskColumn';
 import TaskModal from '../components/TaskModal';
-import type { Task, TaskStatus, TaskPriority } from '../types/task';
+import type { TaskStatus, TaskPriority } from '../types/task';
 import { TASK_STATUSES, TASK_PRIORITIES } from '../types/task';
 
 const COLUMN_COLORS: Record<TaskStatus, string> = {
