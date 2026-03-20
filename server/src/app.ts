@@ -2,11 +2,33 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import taskRoutes from './routes/task.routes';
-import connectDB from './config/db';
+
+import mongoose from 'mongoose';
 
 dotenv.config();
 
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/taskboard';
+
+// MongoDB connection with caching for serverless environments
+let isConnected = false;
+const connectDB = async () => {
+  if (isConnected) return;
+  try {
+    await mongoose.connect(MONGO_URI);
+    isConnected = true;
+    console.log('MongoDB connected successfully');
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+  }
+};
+
 const app = express();
+
+// Database connection middleware
+app.use(async (_req, _res, next) => {
+  await connectDB();
+  next();
+});
 
 // Middleware
 app.use(cors({
@@ -17,16 +39,6 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Database connection middleware for Serverless
-app.use(async (_req, _res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
 
 // Routes
 app.use('/api/tasks', taskRoutes);
