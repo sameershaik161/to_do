@@ -8,7 +8,7 @@ interface TaskColumnProps {
   accentColor: string;
 }
 
-export default function TaskColumn({ status, label, tasks, accentColor }: TaskColumnProps) {
+export default function TaskColumn({ label, tasks, accentColor }: TaskColumnProps) {
   return (
     <div className="task-column">
       <div className="column-header" style={{ borderTopColor: accentColor }}>
