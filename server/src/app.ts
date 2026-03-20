@@ -9,9 +9,9 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://to-do-3-nag5.onrender.com', 'https://your-vercel-domain.vercel.app', 'http://localhost:5173', 'http://localhost:5175']
-    : ['http://localhost:5173', 'http://localhost:5175'],
+  origin: process.env.CLIENT_URL ? process.env.CLIENT_URL.split(',') : (process.env.NODE_ENV === 'production' 
+    ? ['https://your-vercel-domain.vercel.app']
+    : ['http://localhost:5173', 'http://localhost:5175']),
   credentials: true,
 }));
 app.use(express.json());

@@ -4,7 +4,10 @@
   "outputDirectory": "client/dist",
   "installCommand": "cd client && npm install",
   "framework": "vite",
-  "env": {
-    "VITE_API_URL": "https://to-do-3-nag5.onrender.com/api"
-  }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
