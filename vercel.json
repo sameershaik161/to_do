@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "buildCommand": "cd client/client && npm run build",
+  "outputDirectory": "client/client/dist",
+  "installCommand": "cd client/client && npm install",
+  "framework": "vite",
+  "env": {
+    "VITE_API_URL": "https://to-do-3-nag5.onrender.com/api"
+  }
+}
