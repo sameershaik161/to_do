@@ -3,7 +3,7 @@ import type { Task, CreateTaskDto, UpdateTaskDto, ApiResponse } from '../../type
 
 export const taskApi = createApi({
   reducerPath: 'taskApi',
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL || '/api' }),
   tagTypes: ['Task'],
   endpoints: (builder) => ({
     // GET all tasks
