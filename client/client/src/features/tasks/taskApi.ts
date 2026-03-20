@@ -3,7 +3,7 @@ import type { Task, CreateTaskDto, UpdateTaskDto, ApiResponse } from '../../type
 
 export const taskApi = createApi({
   reducerPath: 'taskApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://to-do-3-nag5.onrender.com/api' }),
   tagTypes: ['Task'],
   endpoints: (builder) => ({
     // GET all tasks
